@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - NOAR</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><span>NO</span>AR</h1>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#produtos"><i class="fas fa-boxes"></i> Produtos</a></li>
+                    <li><a href="#mensagens"><i class="fas fa-envelope"></i> Mensagens</a></li>
+                    <li><a href="#clientes"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#pedidos"><i class="fas fa-shopping-cart"></i> Pedidos</a></li>
+                    <li><a href="#configuracoes"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </nav>
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <img src="imagens/admin-avatar.jpg" alt="Admin">
+                    <span>Administrador</span>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <section id="dashboard" class="content-section active">
+                <h2>Visão Geral</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total de Produtos</h3>
+                            <p id="total-produtos">127</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Novas Mensagens</h3>
+                            <p id="novas-mensagens">15</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Pedidos Hoje</h3>
+                            <p id="pedidos-hoje">8</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Novos Clientes</h3>
+                            <p id="novos-clientes">5</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Atividade Recente</h3>
+                    <div class="activity-list">
+                        <!-- Atividades serão carregadas via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gerenciamento de Produtos -->
+            <section id="produtos" class="content-section">
+                <div class="section-header">
+                    <h2>Gerenciamento de Produtos</h2>
+                    <button id="add-produto" class="btn-primary">
+                        <i class="fas fa-plus"></i> Adicionar Produto
+                    </button>
+                </div>
+
+                <!-- Formulário de Adição/Edição (inicialmente oculto) -->
+                <div id="produto-form-container" class="form-container" style="display: none;">
+                    <form id="produto-form">
+                        <input type="hidden" id="produto-id">
+                        <div class="form-group">
+                            <label for="produto-nome">Nome do Produto</label>
+                            <input type="text" id="produto-nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="produto-codigo">Código (ex: HFZ, HFD)</label>
+                            <input type="text" id="produto-codigo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="produto-categoria">Categoria</label>
+                            <select id="produto-categoria" required>
+                                <option value="">Selecione...</option>
+                                <option value="garra">Atuadores Garra</option>
+                                <option value="especial">Atuadores Especiais</option>
+                                <option value="compacto">Atuadores Compactos</option>
+                                <option value="guiado">Atuadores Guiados</option>
+                                <option value="normalizado">Atuadores Normalizados</option>
+                                <option value="haste">Atuadores Sem Haste</option>
+                                <option value="rotativo">Atuadores Rotativos</option>
+                                <option value="valvula">Válvulas</option>
+                                <option value="instrumento">Instrumentação</option>
+                                <option value="linear">Movimentação Linear</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="produto-descricao">Descrição</label>
+                            <textarea id="produto-descricao" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="produto-especificacoes">Especificações Técnicas (JSON)</label>
+                            <textarea id="produto-especificacoes" rows="5" placeholder='{"Tipo": "", "Aplicação": "", "Modelo": ""}'></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="produto-imagem">Imagem do Produto</label>
+                            <input type="file" id="produto-imagem" accept="image/*">
+                            <div id="imagem-preview" class="imagem-preview"></div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Salvar</button>
+                            <button type="button" id="cancelar-produto" class="btn-secondary">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Lista de Produtos -->
+                <div class="table-responsive">
+                    <table id="tabela-produtos">
+                        <thead>
+                            <tr>
+                                <th>Imagem</th>
+                                <th>Nome</th>
+                                <th>Código</th>
+                                <th>Categoria</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Produtos serão carregados via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Mensagens dos Clientes -->
+            <section id="mensagens" class="content-section">
+                <h2>Mensagens dos Clientes</h2>
+                
+                <div class="message-container">
+                    <div class="message-list">
+                        <div class="message-search">
+                            <input type="text" placeholder="Buscar mensagens...">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="message-items">
+                            <!-- Lista de mensagens será carregada via JavaScript -->
+                        </div>
+                    </div>
+                    <div class="message-view">
+
+                        <div class="message-header">
+                            <h3 id="message-subject">Selecione uma mensagem</h3>
+                            <div class="message-info">
+                                <span id="message-from"></span>
+                                <span id="message-date"></span>
+                            </div>
+                        </div>
+                        <div class="message-body" id="message-content">
+                            <p>Selecione uma mensagem para visualizar e responder</p>
+                        </div>
+                        <div class="message-reply">
+                            <h4>Responder</h4>
+                            <textarea id="reply-text" placeholder="Digite sua resposta..."></textarea>
+                            <button id="send-reply" class="btn-primary">Enviar Resposta</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Outras seções (Clientes, Pedidos, Configurações) podem ser adicionadas aqui -->
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOAR - Soluções em Automação Industrial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="azul">NO</span>AR</h1>
+                <p>Soluções em Automação Industrial</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><button id="abreChat" class="btn-chat"><i class="fas fa-comments"></i> Fale Conosco</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Soluções em Automação Industrial</h2>
+                <p>Fornecemos as melhores peças e componentes para sua linha de produção</p>
+                <a href="#produtos" class="btn">Conheça nossos produtos</a>
+            </div>
+        </section>
+
+        <section id="produtos" class="produtos">
+            <div class="container">
+                <h2>Nossos Produtos</h2>
+                <div class="filtros">
+                    <button class="filtro-btn active" data-categoria="todos">Todos</button>
+                    <button class="filtro-btn" data-categoria="atuadores">Atuadores</button>
+                    <button class="filtro-btn" data-categoria="valvulas">Válvulas</button>
+                    <button class="filtro-btn" data-categoria="instrumentacao">Instrumentação</button>
+                    <button class="filtro-btn" data-categoria="movimentacao">Movimentação Linear</button>
+                </div>
+                
+                <div class="grade-produtos">
+                    <!-- Atuadores Garra -->
+                    <div class="produto" data-categoria="atuadores">
+                        <img src="imagens/garra-paralela-hfz.jpg" alt="Garra Paralela HFZ">
+                        <h3>Garra Paralela HFZ</h3>
+                        <div class="especificacoes">
+                            <p><strong>Tipo:</strong> Garra Paralela</p>
+                            <p><strong>Aplicação:</strong> Manipulação de peças</p>
+                            <p><strong>Modelo:</strong> HFZ</p>
+                        </div>
+                        <button class="btn-consulta" data-produto="Garra Paralela HFZ">Consultar Preço</button>
+                    </div>
+                    
+                    <div class="produto" data-categoria="atuadores">
+                        <img src="imagens/garra-compacta-hfd.jpg" alt="Garra Paralela Compacta HFD">
+                        <h3>Garra Paralela Compacta HFD</h3>
+                        <div class="especificacoes">
+                            <p><strong>Tipo:</strong> Garra Paralela Compacta</p>
+                            <p><strong>Aplicação:</strong> Espaços reduzidos</p>
+                            <p><strong>Modelo:</strong> HFD</p>
+                        </div>
+                        <button class="btn-consulta" data-produto="Garra Paralela Compacta HFD">Consultar Preço</button>
+                    </div>
+                    
+                    <!-- Continue com todos os outros produtos do catálogo -->
+                    <!-- Atuadores Especiais -->
+                    <div class="produto" data-categoria="atuadores">
+                        <img src="imagens/atuador-ajuste-curso-jsi.jpg" alt="Atuador com Ajuste de Curso JSI">
+                        <h3>Atuador com Ajuste de Curso JSI</h3>
+                        <div class="especificacoes">
+                            <p><strong>Tipo:</strong> Atuador Especial</p>
+                            <p><strong>Característica:</strong> Ajuste de curso</p>
+                            <p><strong>Modelo:</strong> JSI</p>
+                        </div>
+                        <button class="btn-consulta" data-produto="Atuador com Ajuste de Curso JSI">Consultar Preço</button>
+                    </div>
+                    
+                    <!-- Válvulas Direcionais Solenoides -->
+                    <div class="produto" data-categoria="valvulas">
+                        <img src="imagens/valvula-4v.jpg" alt="Válvula Direcional Solenoide 4V">
+                        <h3>Válvula Direcional Solenoide 4V</h3>
+                        <div class="especificacoes">
+                            <p><strong>Tipo:</strong> 3/5 vias</p>
+                            <p><strong>Aplicação:</strong> Controle direcional</p>
+                            <p><strong>Modelo:</strong> 4V</p>
+                        </div>
+                        <button class="btn-consulta" data-produto="Válvula Direcional Solenoide 4V">Consultar Preço</button>
+                    </div>
+                    
+                    <!-- Instrumentação -->
+                    <div class="produto" data-categoria="instrumentacao">
+                        <img src="imagens/pressostato-dps.jpg" alt="Pressostato Digital DPS">
+                        <h3>Pressostato Digital DPS</h3>
+                        <div class="especificacoes">
+                            <p><strong>Tipo:</strong> Pressostato/Vacuostato</p>
+                            <p><strong>Display:</strong> Digital</p>
+                            <p><strong>Modelo:</strong> DPS/DPH</p>
+                        </div>
+                        <button class="btn-consulta" data-produto="Pressostato Digital DPS">Consultar Preço</button>
+                    </div>
+                    
+                    <!-- Movimentação Linear -->
+                    <div class="produto" data-categoria="movimentacao">
+                        <img src="imagens/guia-linear-lrm.jpg" alt="Guia Linear Miniatura LRM">
+                        <h3>Guia Linear Miniatura LRM</h3>
+                        <div class="especificacoes">
+                            <p><strong>Tipo:</strong> Guia Linear</p>
+                            <p><strong>Característica:</strong> Miniatura</p>
+                            <p><strong>Modelo:</strong> LRM</p>
+                        </div>
+                        <button class="btn-consulta" data-produto="Guia Linear Miniatura LRM">Consultar Preço</button>
+                    </div>
+                    
+                    <!-- Adicione todos os outros produtos seguindo o mesmo padrão -->
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="sobre">
+            <div class="container">
+                <h2>Sobre a NOAR</h2>
+                <div class="sobre-content">
+                    <div class="sobre-texto">
+                        <p>A NOAR é especializada em soluções de automação industrial, fornecendo componentes de alta qualidade para otimizar seus processos produtivos.</p>
+                        <p>Com mais de 15 anos de experiência no mercado, nossa equipe técnica está pronta para oferecer a melhor solução para sua necessidade.</p>
+                        <p>Trabalhamos com os principais fabricantes mundiais para garantir a qualidade e confiabilidade de nossos produtos.</p>
+                    </div>
+                    <div class="sobre-imagem">
+                        <img src="imagens/fabrica.jpg" alt="Fábrica automatizada">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contato">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <div class="contato-content">
+                    <div class="contato-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Rua Industrial, 123 - Bairro Industrial - Cidade/SP</p>
+                        <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                        <p><i class="fas fa-envelope"></i> contato@noarautomacao.com.br</p>
+                        <p><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h</p>
+                    </div>
+                    <div class="contato-form">
+                        <form>
+                            <input type="text" placeholder="Seu nome" required>
+                            <input type="email" placeholder="Seu e-mail" required>
+                            <input type="tel" placeholder="Seu telefone">
+                            <textarea placeholder="Sua mensagem" required></textarea>
+                            <button type="submit" class="btn">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chat Widget -->
+    <div id="chatWidget" class="chat-widget">
+        <div class="chat-header">
+            <h3>Atendimento NOAR</h3>
+            <button id="fechaChat"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-messages">
+                <div class="mensagem atendente">
+                    <p>Olá! Como podemos ajudar você hoje?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Digite sua mensagem..." id="mensagemInput">
+                <button id="enviaMensagem"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>NOAR</h3>
+                    <p>Soluções completas em automação industrial</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 NOAR Automação Industrial. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
